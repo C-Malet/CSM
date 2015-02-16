@@ -1,0 +1,42 @@
+<div class="columnContainer">
+    <div class="columnHeader" ng-style="column.header.style">
+        <div class="columnName" ng-style="column.header.style" title="{{column.name}}" contenteditable="{{ isInEditionMode() ? 'true' : 'false' }}" spellcheck="false" edited-content='column' edited-attribute='name' content-index='{{$index}}'>
+            {{column.name}}
+        </div>
+        <div class="toggleColumnButton" ng-click="toggleColumn($index)">
+            <a href=""><i ng-style="column.header.style" ng-class="columnIsOpen($index) ? 'glyphicon glyphicon-chevron-up' : 'glyphicon glyphicon-chevron-down'"></i></a>
+        </div>
+    </div>
+
+    <div class="columnContent" ng-class="columnIsOpen($index) ? 'openColumn' : 'foldColumn'">
+        <div class="content" ng-bind-html="getColumnContent($index)">
+            <!-- Column content -->
+        </div>
+        <div class="emptyContent" ng-show="columnIsEmpty($index)">
+            Click on the edit button to add some cool content to this block !
+        </div>
+        <div class="showMore" ng-show="!columnIsOpen($index)"></div>
+    </div>
+
+    <div class="columnTools" ng-show="isInEditionMode() && columnIsOpen($index)">
+        <a href="" ng-click="editColumn($index)">
+            <i class="glyphicon glyphicon-pencil editIconColor"></i>
+        </a>
+        <span class="menuSeparatorSmall"></span>
+        <a href="" ng-click="moveColumn($index, 'left', 1)">
+            <i class="glyphicon glyphicon-arrow-left"></i>
+        </a>
+        <span class="menuSeparatorSmall"></span>
+        <a href="" ng-click="moveColumn($index, 'right', 1)">
+            <i class="glyphicon glyphicon-arrow-right"></i>
+        </a>
+       <span class="menuSeparatorSmall"></span>
+        <a href="" ng-click="openColumnConfig($index)">
+            <i class="glyphicon glyphicon-cog"></i>
+        </a>
+        <span class="menuSeparatorSmall"></span>
+        <a href="" ng-click="removeColumn($index)">
+            <i class="glyphicon glyphicon-trash trashIconColor"></i>
+        </a>
+    </div>
+</div>

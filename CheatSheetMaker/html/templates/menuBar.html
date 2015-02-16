@@ -1,0 +1,51 @@
+<div class="menuBar">
+    <span ng-repeat="format in formats">
+        &nbsp;
+        <div class="menuBarIcon">
+            <a href="" ng-click="setFormat($index)" ng-class="{'selectedIcon' : isSelectedFormat($index)}">
+                <i class="{{format.class}}"></i>
+                <p>{{format.name}}</p>
+            </a>
+        </div>
+        &nbsp;
+    </span> &nbsp;
+    <span class="menuSeparator"></span> &nbsp;&nbsp;
+    <div class="menuBarIcon">
+        <a href="" ng-click="toggleColumns('expend')">
+            <i class="glyphicon glyphicon-resize-full"></i>
+            <p>Expand</p>
+        </a>
+    </div>
+    &nbsp;&nbsp;
+    <div class="menuBarIcon">
+        <a href="" ng-click="toggleColumns('fold')">
+            <i class="glyphicon glyphicon-resize-small"></i>
+            <p>Fold</p>
+        </a>
+    </div>
+    &nbsp;&nbsp;
+    <span class="menuSeparator"></span> &nbsp;&nbsp;
+    <div class="menuBarIcon">
+        <a href="" ng-click="toggleEditionMode()" ng-class="{'selectedIcon' : isInEditionMode()}">
+            <i class="glyphicon glyphicon-pencil"></i>
+            <p>Edit</p>
+        </a>
+    </div>
+    &nbsp;&nbsp;
+    <div class="menuBarIcon" ng-show="isInEditionMode()">
+        <a href="" ng-click="addColumn()">
+            <i class="glyphicon glyphicon-folder-open"></i>
+            <p>Add</p>
+        </a>
+    </div>
+
+    <div id="alerts">
+        <div class="alert alert-success logInSuccess">
+            <a href="#" class="close logInSuccessClose" onClick="closeAlert('login')">&times;</a> You are now logged in.
+        </div>
+        <div class="alert alert-info logOutSuccess">
+            <a href="#" class="close logInSuccessClose" onClick="closeAlert('logout')">&times;</a> You are now logged out.
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>

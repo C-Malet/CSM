@@ -1,0 +1,402 @@
+/* INIT */
+
+h3 {
+    padding:0px;
+    margin:6px;
+    display:inline;
+}
+
+body {
+    background-color:#EEE;
+}
+
+.content {
+    word-wrap: break-word;
+    text-overflow:ellipsis;
+    overflow:hidden;
+}
+
+.textAreaColumnContent {
+    width:100%;
+}
+
+.emptyContent {
+    color:blue;
+    margin:10px;
+    font-size:16px;
+    text-align:center;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.trashIconColor {
+    color:red;
+}
+
+.selectedIcon {
+    color:green;
+}
+
+.selectedIcon:hover {
+    color:#006600;
+}
+
+.columnContent {
+    background-color:#FFF;
+    position:relative;
+    top:0px;
+    padding:5px;
+}
+
+.columnContent * {
+    margin:0;
+    padding:0;
+}
+
+.columnContent li {
+    margin-left:20px;
+}
+
+#cheatSheet {
+    max-width:1200px;
+    margin:auto;
+    padding-right:20px;
+}
+
+.menuBarIcon {
+    float:left;
+    text-align:center;
+    margin-right:10px;
+    margin-left:10px;
+}
+
+.menuBarIcon p {
+    color:#222;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.editIconColor {
+    color:green;
+}
+
+.cheatSheetName {
+    margin:10px;
+    margin-top:6px;
+    padding-top:6px;
+    width:100%;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    box-shadow: 0 -5px 2px -5px #333;
+}
+
+#mainContainer {
+    max-width:1200px;
+    padding:6px;
+    margin:auto;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.menuBar {
+    padding-left:16px;
+    position:relative;
+    margin:auto;
+    max-width:1200px;
+    font-size:24px;
+}
+
+.menuBar .alert {
+    font-size:14px;
+}
+
+/* COLUMN */
+
+.appHeader {
+    background-color:#444;
+    border-bottom:1px solid white;
+    box-shadow:0px 1px 10px black;
+    margin-bottom:16px;
+}
+
+    #customBtn {
+      display: inline-block;
+      background: #cc3732;
+      color: white;
+      width: 125px;
+      border-radius: 5px;
+    }
+
+    #customBtn:hover {
+      background: #e74b37;
+      cursor: hand;
+    }
+
+    span.label {
+      font-weight: bold;
+    }
+
+    span.icon {
+      background: url('/+/images/branding/btn_red_32.png') transparent 10px 50% no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+      width: 30px;
+      height: 30px;
+    }
+
+    span.buttonText {
+        font-weight:bold;
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+.appWidth {
+    margin:auto;
+    height:48px;
+    padding-left:6px;
+    padding-right:6px;
+    max-width:1200px;
+}
+
+#signinButton {
+    float:left;
+    margin-right:10px;
+}
+
+#logOutButton {
+    display:none;
+    margin-right:10px;
+    height:32px;
+    border:1px solid black;
+    border-radius:4px;
+    box-shadow:0px 0px 5px 1px #BBB;
+    font-weight:bold;
+    color:black;
+    background-color:#DDD;
+    float:left;
+}
+
+#alerts {
+    z-index:9999;
+    position:absolute;
+    top:0px;
+    right:0px;
+    float:right;
+    padding-right:16px;
+}
+
+.logInSuccess {
+    width:200px;
+    display:none;
+}
+
+.logOutSuccess {
+    width:200px;
+    display:none;
+}
+
+.alert {
+    padding:8px !important;
+}
+
+#logOutButton:hover {
+    background-color:#FFF;
+    box-shadow:0px 0px 5px 1px #FFF;
+    cursor:pointer;
+}
+
+#logOutButton:active {
+    background-color:#CCC;
+}
+
+.logOutIcon {
+    border-right:1px solid #AAA;
+    padding:6px;
+    padding-left:8px;
+    padding-right:8px;
+    float:left;
+    height:30px;
+
+}
+
+.logOutText {
+    float:left;
+    padding:5px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.appName {
+    padding-top:2px;
+    float:left;
+}
+
+.appHeader h1 {
+    padding:0px;
+    padding-top:5px;
+    margin:6px;
+    margin-right:20px;
+    font-size:20px;
+    color:white;
+}
+
+.appButtons {
+    float:right;
+    color:white;
+    margin-top:7px;
+    margin-left:20px;
+}
+
+.columnHeader {
+    position:relative;
+    width:100%;
+    border-bottom:1px solid gray;
+    text-align:center;
+    padding:1px;
+    padding-right:24px;
+    font-weight:bold;
+}
+
+.toggleColumnButton {
+    cursor:pointer;
+    float:right;
+    position:absolute;
+    right:4px;
+    top:3px;
+}
+
+.baseColumn {
+    opacity:0.8;
+}
+
+.selectedColumn {
+    opacity:1;
+    /* width:100% !important; */
+}
+
+.columnTools {
+    background-color:#DDD;
+    border-top:1px solid #666;
+    padding:3px;
+    text-align:right;
+    font-size:14px;
+}
+
+.columnName {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+}
+
+.columnName:focus {
+    white-space:normal;
+    text-overflow:clip;
+}
+
+.openColumn {
+    max-height: 100%;
+}
+
+.foldColumn {
+    height:10px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    width:100%;
+}
+
+.showMore {
+    position: absolute;
+	bottom: 0; left: 0;
+	font-size:8px;
+	font-weight:bold;
+	width: 100%;
+	text-align: center;
+	margin: 0; padding: 3px 0;
+
+	/* "transparent" only works here because == rgba(0,0,0,0) */
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, transparent),color-stop(1, #888));
+        background-image: -webkit-linear-gradient(top, transparent, #888);
+        background-image: -moz-linear-gradient(top, transparent, #888);
+        background-image: -ms-linear-gradient(top, transparent, #888);
+        background-image: -o-linear-gradient(top, transparent, #888);
+}
+
+[contenteditable=true] {
+    border:1px solid #C2E0FF;
+    border-radius:2px;
+    padding:2px;
+    padding-left:4px;
+    padding-right:4px;
+}
+
+.clear {
+    clear:both;
+}
+
+.item {
+    float:left;
+}
+
+#noColumnMessage {
+    margin:auto;
+    margin-top:15px;
+    font-size:20px;
+    color:red;
+    text-align:center;
+}
+
+.columnContainer {
+    margin:5px;
+    box-shadow:0px 0px 1px 1px #BBB;
+}
+
+.headerConfigs {
+    width:48%;
+    float:left;
+    border-right:1px solid #DDD;
+}
+
+.headerPreviewTitle {
+    text-align:center;
+    font-weight:bold;
+}
+
+.headerPreview {
+    width:48%;
+    float:right;
+}
+
+.headerPreview .columnHeader {
+    position:relative;
+    width:100%;
+    border:1px solid gray;
+    text-align:center;
+    border-radius:5px 5px 0px 0px;
+    padding:1px;
+    font-weight:bold;
+}
+
+.colorPicker {
+    padding:0px;
+    width:80px;
+}
+
+.menuSeparator {
+    border-right:2px solid #AAA;
+    padding:1px;
+    height:50px;
+    margin-left:5px;
+    margin-right:5px;
+    float:left;
+}
+
+.menuSeparatorSmall {
+    border-right:2px solid #AAA;
+    margin-right:6px;
+    padding:1px;
+}

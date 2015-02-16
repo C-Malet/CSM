@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-app="CSMApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>CheatSheetMaker</title>
+
+    <link href="libraries/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libraries/angular-bootstrap-colorpicker/css/colorpicker.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <script type="text/javascript" src="libraries/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="libraries/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script type="text/javascript" src="libraries/masonry/dist/masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="libraries/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://apis.google.com/js/client:platform.js" async defer></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+    <script type="text/javascript" src="libraries/angular-masonry/angular-masonry.js"></script>
+    <script type="text/javascript" src="libraries/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="libraries/angular-sanitize/angular-sanitize.js"></script>
+    <script type="text/javascript" src="libraries/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.js"></script>
+    <script type="text/javascript" src="libraries/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="libraries/ckeditor/ng-ckeditor-1.0.1.min.js"></script>
+
+    <script type="text/javascript" src="scripts/controllers/mainController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/columnConfigModalController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/columnEditModalController.js"></script>
+
+    <script type="text/javascript" src="scripts/directives/column.js"></script>
+    <script type="text/javascript" src="scripts/directives/contentEditable.js"></script>
+    <script type="text/javascript" src="scripts/directives/menuBar.js"></script>
+    <script type="text/javascript" src="scripts/directives/allowTab.js"></script>
+
+    <script type="text/javascript" src="scripts/services/cheatSheetManager.js"></script>
+
+    <script type="text/javascript" src="scripts/app.js"></script>
+
+    <script type="text/javascript" src="scripts/googleButtons.js"></script>
+    <script type="text/javascript" src="scripts/utils.js"></script>
+</head>
+<body ng-controller="mainController">
+
+<div class="appHeader">
+    <div class="appWidth">
+        <div class="appName">
+            <h1 class="appTitle">{{appName}}</h1>
+        </div>
+        <div class="appButtons">
+            <div id="logOutButton" onClick="logOutUser()">
+                <div class="logOutIcon"><i class="glyphicon glyphicon-off"></i></div>
+                <div class="logOutText">Sign out</div>
+            </div>
+            <span id="signinButton" style="display:none;">
+                <span
+                    class="g-signin"
+                    data-callback="signinCallback"
+                    data-clientid="9967612399-v0ss6l1004m3t64grfqpeqekur6f6tmi.apps.googleusercontent.com"
+                    data-cookiepolicy="single_host_origin"
+                    data-requestvisibleactions="http://schema.org/AddAction"
+                    data-scope="https://www.googleapis.com/auth/plus.login">
+                </span>
+            </span>
+        </div>
+        <div class="clear"></div>
+        </div>
+</div>
+
+<menubar></menubar>
+
+<div id="cheatSheet">
+    <div class="cheatSheetName">
+        <p contenteditable="{{ isInEditionMode() ? 'true' : 'false' }}" spellcheck="false" edited-content='cheatSheet'>
+            {{cheatSheetName}}
+        </p>
+    </div>
+</div>
+
+<div id="mainContainer">
+    <div id="container" masonry load-images="false" preserve-order masonry-options="{ transitionDuration: '0.25s', isInitLayout : 'false' }">
+        <div class="item masonry-brick"
+             ng-repeat="column in columns"
+             ng-style="{width : currentFormat.object.width}"
+             ng-class="columnIsOpen($index) ? 'selectedColumn' : 'baseColumn'"
+        >
+            <column></column>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="noColumnMessage" ng-show="noColumn()">
+        <p>
+            Add a new block to start creating your Cheat Sheet !
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

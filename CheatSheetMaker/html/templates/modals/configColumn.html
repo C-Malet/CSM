@@ -1,0 +1,42 @@
+<div class="modal-header">
+    <h3 class="modal-title"><strong>{{columnName}}</strong> - Configuration panel</h3>
+</div>
+<div class="modal-body">
+    <div class="headerConfigs">
+        <div class="headerTitle">
+            <p>
+                Header title:
+                <input
+                    class="colorPicker"
+                    colorpicker
+                    type="text"
+                    ng-model="columnHeaderTitle"
+                    ng-change="headerTitle={color:'{{columnHeaderTitle}}'}" />
+            </p>
+        </div>
+        <div class="headerBackground">
+            <p>
+                Header background:
+                <input
+                    class="colorPicker"
+                    colorpicker
+                    type="text"
+                    ng-model="columnHeaderBackground"
+                    ng-change="headerBackground={'background-color': '{{columnHeaderBackground}}'}" />
+            </p>
+        </div>
+    </div>
+    <div class="headerPreview">
+        <p class="headerPreviewTitle"> Header preview</p>
+        <div class="columnHeader" ng-style="headerBackground">
+            <div class="columnName" ng-style="headerTitle">
+                Block name
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
